@@ -19,7 +19,7 @@
         modulePromise = import('../../EverLastingLat.github.io/utils/js/global.js');
       } else {
         console.log("Loading github utils")
-        modulePromise = import('https://raw.githubusercontent.com/EverLastingLat/EverLasitngLat.github.io/main/utils/js/global.js');
+        modulePromise = import('https://cdn.jsdelivr.net/gh/EverLastingLat/EverLasitngLat.github.io/utils/js/global.js');
       }
       return modulePromise.then(module => {
         utils = module.default;
@@ -37,7 +37,7 @@
         link.href = './../../EverLastingLat.github.io/utils/style.css';
       } else {
         console.log("Loading github's stylesheet");
-        link.href = "https://raw.githubusercontent.com/EverLastingLat/EverLasitngLat.github.io/main/utils/style.css";
+        link.href = "https://cdn.jsdelivr.net/gh/EverLastingLat/EverLasitngLat.github.io/utils/style.css";
       }
       document.head.appendChild(link);
       styleSheetLoaded = true
