@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://raw.githubusercontent.com/EverLastingLat/EverLasitngLat.github.io/main/utils/media/icons/evla_minimal.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/EverLastingLat/EverLasitngLat.github.io/main/utils/media/icons/evla_minimal.ico" type="image/x-icon">
+  <title>EverLasting</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+  <script type="module">
+    let utils;
+    let styleSheetLoaded = false;
+  
+    function importing() {
+      let modulePromise = null;
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.log("Loading local utils")
+        modulePromise = import('../../EverLastingLat.github.io/utils/js/global.js');
+      } else {
+        console.log("Loading github utils")
+        modulePromise = import('https://cdn.jsdelivr.net/gh/EverLastingLat/EverLasitngLat.github.io/utils/js/global.js');
+      }
+      return modulePromise.then(module => {
+        utils = module.default;
+        initializeStylesheet();
+        localScript()
+      }).catch(error => { console.error('Error loading module:', error);  });
+    }
+  
+    function initializeStylesheet() {
+      if(styleSheetLoaded) return;
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      if (utils && utils.rWeLive) {
+        console.log("Loading github's stylesheet");
+        link.href = "https://cdn.jsdelivr.net/gh/EverLastingLat/EverLasitngLat.github.io/utils/style.css";
+      } else {
+        console.log("Loading local stylesheet.");
+        link.href = './../../EverLastingLat.github.io/utils/style.css';
+      }
+      document.head.appendChild(link);
+      styleSheetLoaded = true
+    }
+    importing().then(() => {initializeStylesheet();});
+    if (document.readyState === 'complete' || document.readyState === 'interactive') initializeStylesheet();
+    else window.addEventListener('DOMContentLoaded', initializeStylesheet);
+
+    function localScript(){
+      console.log("Loaded utils.")
+    }
+  </script>
+</head>
+<body class="bg-general">
+  <div class="container mt-5">
+    <h1 class="text-center mb-4 evla-title">EverLasting</h1>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Índice</h4>
+        <ul>
+          <li><a class="card-link reglas">  Reglas</a></li>
+          <li><a class="card-link wiki">    Wiki</a></li>
+          <li><a class="card-link credits"> Créditos</a></li>
+        </ul>
+    </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
