@@ -33,11 +33,11 @@
       var link = document.createElement('link');
       link.rel = 'stylesheet';
       if (utils && utils.rWeLive) {
-        console.log("Loading github's stylesheet");
-        link.href = "https://cdn.jsdelivr.net/gh/EverLastingLat/EverLasitngLat.github.io/utils/style.css";
-      } else {
         console.log("Loading local stylesheet.");
         link.href = './../../EverLastingLat.github.io/utils/style.css';
+      } else {
+        console.log("Loading github's stylesheet");
+        link.href = "https://cdn.jsdelivr.net/gh/EverLastingLat/EverLasitngLat.github.io/utils/style.css";
       }
       document.head.appendChild(link);
       styleSheetLoaded = true
