@@ -47,16 +47,48 @@
   }
 
   
-  .bg-general {
-    background-color: #f5f5f5;
-  }
+.bg-general {
+  background-color: #f5f5f5;
+}
 
-  .evla-title {
-    color: var(--clarity7);
-  }
+.evla-title {
+  color: var(--clarity7);
+}
 
-  .under-development {
-    text-align: center;
-    font-size: 24px;
-    margin-top: 50px;
-  }
+.under-development {
+  text-align: left;
+  font-size: 24px;
+  margin-top: 50px;
+}
+
+ul.team-list {
+  list-style: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+ul.team-list li {
+  position: relative;
+  padding-left: 20px; 
+  margin-bottom: 5px;
+  font-size: 16px;
+  /* color: var(--clarity3); */
+  line-height: 1.1;
+}
+
+ul.team-list li::before {
+  content: '\2023';
+  padding-left: 10px;
+  position: absolute;
+  left: 0;
+}
+
+ul.team-list li.stricken {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.1;
+  color: grey;
+}
